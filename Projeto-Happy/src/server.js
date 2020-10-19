@@ -2,12 +2,14 @@
 const express = require('express');
 const path = require('path');
 const pages = require('./pages');
+const cors = require('cors');
 
 // Iniciando lib express
 const server = express();
 
 server
   // Declarando onde estão os arquivos estáticos
+  .use(cors())
   .use(express.static('public'))
 
   // Utilizar body da requisição
