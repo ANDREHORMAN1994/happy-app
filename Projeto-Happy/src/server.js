@@ -39,7 +39,13 @@ server.listen(5500);
 
 /* ATENÇÃO : 
 O nodemon pode crashar, Erro: Error: listen EADDRINUSE :::5500
-Significa que a porta já está em uso, para resolver isso você pode encerrar o processo que está rodando nessa porta executando o comando:
-
+Significa que a porta já está em uso. Para resolver isso você pode 
+encerrar o processo que está rodando nessa porta executando o comando :
   pkill node
+
+Caso o Cache esteja cheio usar :
+  npm cache clean --force
+
+Depois pode apagar o node_modules e o package-lock.json e rodar :
+  npm install
 */
