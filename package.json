@@ -2,12 +2,13 @@
   "name": "happy-app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "engines": {
     "node": "v12.22.12"
   },
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "build": "parcel build src/views/**/*.hbs --out-dir dist",
+    "build-web": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,8 @@
     "hbs": "^4.1.1",
     "nodemon": "^2.0.5",
     "sqlite-async": "^1.1.0"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
   }
 }
