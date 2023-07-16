@@ -9,8 +9,8 @@ server
   .use(cors())
   .use(express.static(path.join('public'))) // Servir arquivos estáticos da pasta 'public'
   .use(express.urlencoded({ extended: true }))
-  .set('views', path.join(__dirname, 'views')) // Definir o diretório 'views'
-  .set('dist', path.join('dist')) // Definir o diretório 'dist'
+  // .set('views', path.join(__dirname, 'views')) // Definir o diretório 'views'
+  .set('views', path.join('dist')) // Definir o diretório 'views'
   .set('view engine', 'hbs')
 
   .get('/', pages.index)
