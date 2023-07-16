@@ -1,8 +1,11 @@
 {
-  "name": "nlw",
+  "name": "happy-app",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "v12.22.12"
+  },
   "scripts": {
     "start": "nodemon src/server.js"
   },

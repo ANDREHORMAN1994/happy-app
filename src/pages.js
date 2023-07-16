@@ -6,11 +6,11 @@ const dataBase = require('./database/db');
 const saveOrphanage = require('./database/saveOrphanage');
 
 module.exports = {
-  index(request, response) {
+  index(_request, response) {
     return response.render('index');
   },
 
-  async orphanages(request, response) {
+  async orphanages(_request, response) {
     try {
       const db = await dataBase;
       const orphanages = await db.all('SELECT * FROM orphanages');
@@ -45,7 +45,7 @@ module.exports = {
     }
   },
 
-  createOrphanage(req, res) {
+  createOrphanage(_req, res) {
     return res.render('create-orphanage');
   },
 

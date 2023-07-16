@@ -35,7 +35,7 @@ server
   .post('/save-orphanage', pages.saveOrphanage);
 
 // ligar o servidor na porta
-server.listen(5500);
+server.listen(5500, () => console.log("Entre aqui: http://localhost:5500/"));
 
 /* ATENÇÃO : 
 O nodemon pode crashar, Erro: Error: listen EADDRINUSE :::5500
