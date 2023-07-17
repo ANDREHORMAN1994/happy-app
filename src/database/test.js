@@ -1,10 +1,9 @@
 import Database from './db.js';
-import saveOrphanage from './saveOrphanage.js';
+import saveOrphanageDB from './saveOrphanageDB.js';
 
 Database.then(async (db) => {
-
   // inserir dados na tabela
-  await saveOrphanage(db, {
+  await saveOrphanageDB(db, {
     lat: '-7.3330727',
     lng: '-35.3408701',
     name: 'Lar das Crianças',

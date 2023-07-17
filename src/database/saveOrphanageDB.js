@@ -1,4 +1,4 @@
-function saveOrphanage(db, orphanage) {
+function saveOrphanageDB(db, orphanage) {
   return db.run(`
     INSERT INTO orphanages (
         lat,
@@ -24,4 +24,4 @@ function saveOrphanage(db, orphanage) {
 `);
 }
 
-export default saveOrphanage;
+export default saveOrphanageDB;

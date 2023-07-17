@@ -3,7 +3,7 @@
 
 // INSERINDO AGORA O SQL COMO BANCO DE DADOS
 import dataBase from './database/db.js';
-import saveOrphanageDB from './database/saveOrphanage.js';
+import saveOrphanageDB from './database/saveOrphanageDB.js';
 
 export function index(_request, response) {
   return response.render('index');
@@ -60,6 +60,7 @@ export async function saveOrphanage(req, res) {
   try {
     //Save orphanage
     const db = await dataBase;
+    console.log(db, fields)
     await saveOrphanageDB(db, {
       lat: fields.lat,
       lng: fields.lng,
