@@ -77,6 +77,6 @@ export async function saveOrphanage(req, res) {
     return res.redirect('/orphanages');
   } catch (error) {
     console.log(error);
-    return res.send('Erro no banco de dados!  Erro para salvar um novo orfanato!');
+    return res.send('Erro no banco de dados! Erro para salvar um novo orfanato!');
   }
 }
