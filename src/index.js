@@ -18,10 +18,10 @@ server
   .set('views', join(__dirname + '/views')) // Definir o diretório "views"
 
   .get('/', index)
-  // .get('/orphanages', orphanages)
-  // .get('/orphanage', orphanage)
-  // .get('/create-orphanage', createOrphanage)
-  // .post('/save-orphanage', saveOrphanage);
+  .get('/orphanages', orphanages)
+  .get('/orphanage', orphanage)
+  .get('/create-orphanage', createOrphanage)
+  .post('/save-orphanage', saveOrphanage);
 
 server.listen(5500, () => {
   console.log('Entre aqui:', 'http://localhost:5500/');
