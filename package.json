@@ -8,10 +8,7 @@
     "node": "v18.12.1"
   },
   "scripts": {
-    "start": "nodemon src/index.js",
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "parcel build src/views/index.hbs --out-dir dist/public",
-    "build:server": "npx babel src/index.js --out-file dist/index.js"
+    "start": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
