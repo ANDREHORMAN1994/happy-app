@@ -15,7 +15,9 @@ server
   .set('views', join(__dirname, './views')) // Definir o diretório "views"
   .set('view engine', 'hbs')
 
-  .get('/', index)
+  .get('/', (_request, response) => {
+    return response.render('index');
+  })
   // .get('/orphanages', orphanages)
   // .get('/orphanage', orphanage)
   // .get('/create-orphanage', createOrphanage)
