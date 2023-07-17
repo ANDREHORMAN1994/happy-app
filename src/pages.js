@@ -16,7 +16,7 @@ export async function orphanages(_request, response) {
     return response.render('orphanages', { orphanages });
   } catch (error) {
     console.log(error);
-    return response.send('Erro no banco de dados!');
+    return response.send('Erro no banco de dados! Erro para selecionar todos os orfanatos!');
   }
 }
 
@@ -40,7 +40,7 @@ export async function orphanage(request, response) {
     return response.render('orphanage', { orphanage });
   } catch (error) {
     console.log(error);
-    return response.send('Erro no banco de dados!');
+    return response.send('Erro no banco de dados! Erro para selecionar um orfanato pelo ID!');
   }
 }
 
@@ -76,6 +76,6 @@ export async function saveOrphanage(req, res) {
     return res.redirect('/orphanages');
   } catch (error) {
     console.log(error);
-    return res.send('Erro no banco de dados!');
+    return res.send('Erro no banco de dados!  Erro para salvar um novo orfanato!');
   }
 }
