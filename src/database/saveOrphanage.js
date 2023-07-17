@@ -10,7 +10,6 @@ function saveOrphanage(db, orphanage) {
         instructions,
         opening_hours,
         open_on_weekends
-
     ) VALUES (
         "${orphanage.lat}",
         "${orphanage.lng}",

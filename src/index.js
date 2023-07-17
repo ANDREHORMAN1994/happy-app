@@ -1,8 +1,9 @@
 import express from 'express';
+import hbs from 'express-hbs/lib/hbs.js';
+import cors from 'cors';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { index, orphanages, orphanage, createOrphanage, saveOrphanage } from './pages.js';
-import cors from 'cors';
 
 const server = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -10,14 +11,13 @@ const __dirname = dirname(__filename);
 
 server
   .use(cors())
-  .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta "public"
-  .use(express.urlencoded({ extended: true }))
-  .set('views', join(__dirname, './views')) // Definir o diretório "views"
+  .engine('hbs', hbs.express4())
   .set('view engine', 'hbs')
+  .use(express.urlencoded({ extended: true }))
+  .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta "public"
+  .set('views', join(__dirname + '/views')) // Definir o diretório "views"
 
-  .get('/', (_request, response) => {
-    return response.render('index');
-  })
+  .get('/', index)
   // .get('/orphanages', orphanages)
   // .get('/orphanage', orphanage)
   // .get('/create-orphanage', createOrphanage)
