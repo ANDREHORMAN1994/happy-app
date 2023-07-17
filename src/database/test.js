@@ -1,7 +1,7 @@
-const dataBase = require('./db');
-const saveOrphanage = require('./saveOrphanage');
+import Database from './db.js';
+import saveOrphanage from './saveOrphanage.js';
 
-dataBase.then(async (db) => {
+Database.then(async (db) => {
 
   // inserir dados na tabela
   await saveOrphanage(db, {

@@ -1,23 +1,25 @@
-const express = require('express');
-const path = require('path');
-const pages = require('./pages');
-const cors = require('cors');
+import express from 'express';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { index, orphanages, orphanage, createOrphanage, saveOrphanage } from './pages.js';
+import cors from 'cors';
 
 const server = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 server
   .use(cors())
-  .use(express.static(path.join('public'))) // Servir arquivos estáticos da pasta 'public'
+  .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta 'public'
   .use(express.urlencoded({ extended: true }))
-  // .set('views', path.join(__dirname, 'views')) // Definir o diretório 'views'
-  .set('views', path.join('dist')) // Definir o diretório 'views'
+  .set('views', join(__dirname, './views')) // Definir o diretório 'views'
   .set('view engine', 'hbs')
 
-  .get('/', pages.index)
-  .get('/orphanages', pages.orphanages)
-  .get('/orphanage', pages.orphanage)
-  .get('/create-orphanage', pages.createOrphanage)
-  .post('/save-orphanage', pages.saveOrphanage);
+  .get('/', index)
+  .get('/orphanages', orphanages)
+  .get('/orphanage', orphanage)
+  .get('/create-orphanage', createOrphanage)
+  .post('/save-orphanage', saveOrphanage);
 
 server.listen(5500, () => {
   console.log('Entre aqui:', 'http://localhost:5500/');
