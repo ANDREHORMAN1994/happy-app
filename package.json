@@ -24,6 +24,7 @@
     "@babel/cli": "^7.22.9",
     "@babel/core": "^7.22.9",
     "@babel/preset-env": "^7.22.9",
+    "@types/hbs": "^4.0.1",
     "parcel-bundler": "^1.12.5"
   }
 }

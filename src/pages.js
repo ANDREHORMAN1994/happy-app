@@ -6,8 +6,7 @@ import dataBase from './database/db.js';
 import saveOrphanageDB from './database/saveOrphanage.js';
 
 export function index(_request, response) {
-  return response.render('index.hbs')
-  // return response.render('index');
+  return response.render('index');
 }
 
 export async function orphanages(_request, response) {
