@@ -4,9 +4,13 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+const dbFile = __dirname + '/database.sqlite';
 
-function execute(db) {
-  return db.exec(`
+async function createDatabase(db) {
+  // Banco em memória
+  // const db = await Database.open(':memory:');
+
+  await db.exec(`
     CREATE TABLE IF NOT EXISTS orphanages (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       lat TEXT,
@@ -19,7 +23,27 @@ function execute(db) {
       opening_hours TEXT,
       open_on_weekends TEXT
     );
-  `)
+  `);
+
+  return db;
 }
 
-export default Database.open(__dirname + '/database.sqlite').then(execute)
+export default Database.open(dbFile).then(createDatabase);
+
+
+/*
+  DOC DB SQLite
+
+  // Consultar dados na tabela
+  const selectedOrphanages = await db.all('SELECT * FROM orphanages');
+
+  // Consultar apenas um dado na tabela
+  const selectOrphanage = await db.all('SELECT * FROM orphanages WHERE id = "3"')
+
+  // Deletar um dado na tabela
+  const deleteElementTable = await db.run('DELETE FROM orphanages WHERE id = "4"')
+
+  // Deletar todos os dados da tabela 
+  const deleteTable = await db.run('DELETE FROM orphanages')
+
+*/
