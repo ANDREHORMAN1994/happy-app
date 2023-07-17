@@ -8,7 +8,10 @@
   "main": "src/server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon src/server.js"
+    "start": "nodemon src/server.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "parcel build src/views/index.hbs --out-dir dist/public",
+    "build:server": "npx babel src/server.js --out-file dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +22,11 @@
     "hbs": "^4.1.1",
     "nodemon": "^2.0.5",
     "sqlite-async": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "parcel-bundler": "^1.12.5"
   }
 }
