@@ -6,7 +6,7 @@ import dataBase from './database/db.js';
 import saveOrphanageDB from './database/saveOrphanage.js';
 
 export function index(_request, response) {
-  response.send('Hey this is my API running 🥳')
+  return response.send(<h1>AAAAAAAAAAAAAAAAAAAAAA 🌝</h1>)
   // return response.render('index');
 }
 
