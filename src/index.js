@@ -1,49 +1,29 @@
 import express from 'express';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+import { index, orphanages, orphanage, createOrphanage, saveOrphanage } from './pages.js';
+import cors from 'cors';
 
-const app = express();
-const PORT = 4000;
+const server = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-app.listen(PORT, () => {
-  console.log(`API listening on PORT ${PORT}`, 'http://localhost:4000');
-})
+server
+  .use(cors())
+  .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta "public"
+  .use(express.urlencoded({ extended: true }))
+  .set('views', join(__dirname, './views')) // Definir o diretório "views"
+  .set('view engine', 'hbs')
 
-app.get('/', (req, res) => {
-  res.send('FUNCIONANDOOOOO 🥳');
-})
+  .get('/', index)
+  .get('/orphanages', orphanages)
+  .get('/orphanage', orphanage)
+  .get('/create-orphanage', createOrphanage)
+  .post('/save-orphanage', saveOrphanage);
 
-app.get('/about', (req, res) => {
-  res.send('TELA ABOUTTTTT');
-})
-
-// Export the Express API
-export default app;
-
-// import express from 'express';
-// import { join, dirname } from 'path';
-// import { fileURLToPath } from 'url';
-// import { index, orphanages, orphanage, createOrphanage, saveOrphanage } from './pages.js';
-// import cors from 'cors';
-
-// const server = express();
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-
-// server
-//   .use(cors())
-//   .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta "public"
-//   .use(express.urlencoded({ extended: true }))
-//   .set('views', join(__dirname, './views')) // Definir o diretório "views"
-//   .set('view engine', 'hbs')
-
-//   .get('/', index)
-//   .get('/orphanages', orphanages)
-//   .get('/orphanage', orphanage)
-//   .get('/create-orphanage', createOrphanage)
-//   .post('/save-orphanage', saveOrphanage);
-
-// server.listen(5500, () => {
-//   console.log('Entre aqui:', 'http://localhost:5500/');
-// });
+server.listen(5500, () => {
+  console.log('Entre aqui:', 'http://localhost:5500/');
+});
 
 // /* ATENÇÃO : 
 // O nodemon pode crashar, Erro: Error: listen EADDRINUSE :::5500
