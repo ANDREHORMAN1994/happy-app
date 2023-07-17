@@ -3,7 +3,7 @@ import hbs from 'express-hbs/lib/hbs.js';
 import cors from 'cors';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { index, orphanages, orphanage, createOrphanage, saveOrphanage } from './pages.js';
+import { Home, allOrphanages, orphanageDetails, createOrphanage, saveOrphanage } from './pages.js';
 
 const server = express();
 const __filename = fileURLToPath(import.meta.url);
@@ -17,9 +17,9 @@ server
   .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta "public"
   .set('views', join(__dirname + '/views')) // Definir o diretório "views"
 
-  .get('/', index)
-  .get('/orphanages', orphanages)
-  .get('/orphanage', orphanage)
+  .get('/', Home)
+  .get('/orphanages', allOrphanages)
+  .get('/orphanage', orphanageDetails)
   .get('/create-orphanage', createOrphanage)
   .post('/save-orphanage', saveOrphanage);
 
