@@ -6,7 +6,7 @@ import dataBase from './database/db.js';
 import saveOrphanageDB from './database/saveOrphanage.js';
 
 export function index(_request, response) {
-  return response.render('<h1>AAAAAAAAAAAAAAAAAAAAAA 🌝</h1>')
+  return response.render('index.hbs')
   // return response.render('index');
 }
 
