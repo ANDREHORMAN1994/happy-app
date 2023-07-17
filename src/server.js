@@ -10,9 +10,9 @@ const __dirname = dirname(__filename);
 
 server
   .use(cors())
-  .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta 'public'
+  .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta "public"
   .use(express.urlencoded({ extended: true }))
-  .set('views', join(__dirname, './views')) // Definir o diretório 'views'
+  .set('views', join(__dirname, './views')) // Definir o diretório "views"
   .set('view engine', 'hbs')
 
   .get('/', index)
