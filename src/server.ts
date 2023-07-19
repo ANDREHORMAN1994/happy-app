@@ -3,8 +3,9 @@ import hbs from 'express-hbs/lib/hbs.js';
 import cors from 'cors';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { Home, allOrphanages, orphanageDetails, createOrphanage, saveOrphanage } from './pages.js';
+import { Home, allOrphanages, orphanageDetails, createOrphanage, saveOrphanage } from './pages';
 
+const port = process.env.PORT || 3000;
 const server = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,8 +24,8 @@ server
   .get('/create-orphanage', createOrphanage)
   .post('/save-orphanage', saveOrphanage);
 
-server.listen(5500, () => {
-  console.log('Entre aqui:', 'http://localhost:5500/');
+server.listen(port, () => {
+  console.log('Entre aqui:', 'http://localhost:3000/');
 });
 
 // /* ATENÇÃO : 

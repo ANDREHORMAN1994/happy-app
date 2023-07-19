@@ -1,4 +1,6 @@
-async function saveOrphanageDB(db, orphanage) {
+import { OrphanageInfos, SQLiteDatabase } from "sqlite-async";
+
+async function saveOrphanageDB(db: SQLiteDatabase, orphanage: OrphanageInfos): Promise<void> {
   await db.run(`
     INSERT INTO orphanages (
       lat,

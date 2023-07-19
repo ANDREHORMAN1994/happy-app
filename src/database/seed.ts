@@ -1,4 +1,4 @@
-import dataBase from './db.js';
+import dataBase from './db';
 
 async function seedDatabase() {
   try {

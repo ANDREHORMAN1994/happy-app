@@ -1,4 +1,4 @@
-import { Database } from 'sqlite-async';
+import { SQLiteDatabase, Database } from 'sqlite-async';
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -6,9 +6,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const dbFile = __dirname + '/database.sqlite';
 
-async function createDatabase() {
+async function createDatabase(db: SQLiteDatabase): Promise<SQLiteDatabase> {
   // Banco em memória
-  const db = await Database.open(':memory:');
+  // const db = await Database.open(':memory:');
 
   await db.exec(`
     CREATE TABLE IF NOT EXISTS orphanages (
@@ -30,7 +30,6 @@ async function createDatabase() {
 
 export default Database.open(dbFile).then(createDatabase);
 
-
 /*
   DOC DB SQLite
 
@@ -45,5 +44,4 @@ export default Database.open(dbFile).then(createDatabase);
 
   // Deletar todos os dados da tabela 
   const deleteTable = await db.run('DELETE FROM orphanages')
-
 */
