@@ -11,18 +11,21 @@
     "start": "nodemon dist/server.js",
     "dev": "npm run seed && tsx src/server.ts",
     "seed": "tsx src/database/seed.ts",
-    "build": "rollup -c && npm run build:hbs && npm run build:data",
+    "build": "rollup -c && npm run build:hbs && npm run build:data && npm run build:db",
     "build:hbs": "parcel build src/views/*.hbs --out-dir dist/views",
-    "build:data": "parcel build src/database/database.sqlite --out-dir dist"
+    "build:data": "parcel build src/database/database.sqlite --out-dir dist",
+    "build:db": "parcel build src/database/*.ts --out-dir dist/database"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1417.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-hbs": "^2.4.0",
     "leaflet": "^1.9.4",
+    "nock": "^13.3.2",
     "nodemon": "^2.0.5",
     "sqlite-async": "^1.2.0"
   },
