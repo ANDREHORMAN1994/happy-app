@@ -12,6 +12,7 @@ const __dirname = dirname(__filename);
 
 server
   .use(cors())
+  .use(express.json())
   .engine('hbs', hbs.express4())
   .set('view engine', 'hbs')
   .use(express.urlencoded({ extended: true }))

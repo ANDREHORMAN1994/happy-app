@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Orphanage {
+    id String @id @default(uuid())
+    lat String
+    lng String
+    name String
+    about String
+    whatsapp String
+    images String[]
+    firstImage String?
+    instructions String
+    opening_hours String
+    open_on_weekends Boolean
+}
