@@ -5,7 +5,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { Home, allOrphanages, orphanageDetails, createOrphanage, saveOrphanage } from './pages';
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5500;
 const server = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -26,7 +26,7 @@ server
   .post('/save-orphanage', saveOrphanage);
 
 server.listen(port, () => {
-  console.log('Entre aqui:', 'http://localhost:3000/');
+  console.log('Entre aqui:', 'http://localhost:5500/');
 });
 
 // /* ATENÇÃO : 
