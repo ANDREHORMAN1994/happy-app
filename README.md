@@ -30,7 +30,7 @@ Essa aplicação foi desenvolvida durante a 3° edição da **Next Level Week**,
   > Um mecanismo de modelagem para criar templates HTML de forma dinâmica.
   - `CSS`
   > Utilizado para estilização e apresentação visual da aplicação.
-  - `TypeScript + ZOD`
+  - `TypeScript + Zod`
   > Tipagem estática ao código + Validação de esquemas de dados.
   - `Node.js`
   > Um ambiente de execução do JavaScript server-side, permitindo a construção de aplicações escaláveis e de alto desempenho.
