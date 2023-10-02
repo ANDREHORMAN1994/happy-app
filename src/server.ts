@@ -1,14 +1,17 @@
 import express from 'express';
 import hbs from 'express-hbs/lib/hbs.js';
 import cors from 'cors';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
-import { Home, allOrphanages, orphanageDetails, createOrphanage, saveOrphanage } from './pages';
+import dotenv from 'dotenv';
+import { join, resolve } from 'path';
+import pages from './pages';
+
+dotenv.config();
+const server = express();
 
 const port = process.env.PORT || 5500;
-const server = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const path = resolve('./');
+const publicFolderPath = join(path, 'public');
+const viewsFolderPath = join(publicFolderPath, 'views');
 
 server
   .use(cors())
@@ -16,14 +19,14 @@ server
   .engine('hbs', hbs.express4())
   .set('view engine', 'hbs')
   .use(express.urlencoded({ extended: true }))
-  .use(express.static(join(__dirname, '../public'))) // Servir arquivos estáticos da pasta "public"
-  .set('views', join(__dirname + '/views')) // Definir o diretório "views"
+  .use(express.static(publicFolderPath))
+  .set('views', viewsFolderPath)
 
-  .get('/', Home)
-  .get('/orphanages', allOrphanages)
-  .get('/orphanage', orphanageDetails)
-  .get('/create-orphanage', createOrphanage)
-  .post('/save-orphanage', saveOrphanage);
+  .get('/', pages.Home)
+  .get('/orphanages', pages.allOrphanages)
+  .get('/orphanage', pages.orphanageDetails)
+  .get('/create-orphanage', pages.createOrphanage)
+  .post('/save-orphanage', pages.saveOrphanage);
 
 server.listen(port, () => {
   console.log('Entre aqui:', 'http://localhost:5500/');

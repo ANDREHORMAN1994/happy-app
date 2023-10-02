@@ -2,17 +2,18 @@
   "name": "happy-app",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
-  "type": "module",
+  "main": "/src/server.ts",
   "engines": {
     "node": "18.x"
   },
   "scripts": {
-    "start": "npm run seed && nodemon dist/server.js",
+    "start": "npm run seed && node dist/server.js",
     "dev": "npm run seed && tsx src/server.ts",
     "seed": "tsx src/database/seed.ts",
-    "build": "rollup -c && npm run build:hbs",
-    "build:hbs": "parcel build src/views/*.hbs --out-dir dist/views"
+    "postinstall": "prisma generate",
+    "build": "prisma generate && tsup src",
+    "build:hbs": "parcel build src/views/*.hbs --out-dir dist/views",
+    "vercel-build": "npm ci && npm run build && npx prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
   "dependencies": {
     "@prisma/client": "^5.0.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
     "express": "^4.17.1",
     "express-hbs": "^2.4.0",
     "leaflet": "^1.9.4",
@@ -37,7 +39,7 @@
     "prisma": "^5.0.0",
     "rollup": "^3.26.3",
     "tslib": "^2.6.0",
-    "tsup": "^7.1.0",
+    "tsup": "^7.2.0",
     "tsx": "^3.12.7",
     "typescript": "^5.1.6"
   }

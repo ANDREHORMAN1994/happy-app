@@ -7,7 +7,7 @@
   <a href="#bookmark-sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#rocket-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#paintbrush-layout">Layout no Figma</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="https://happy-app-andre-horman.onrender.com" target="_blank">Aplicação no Render</a>
+  <a href="https://happy-app-andre-horman.vercel.app/" target="_blank">Aplicação na Vercel</a>
 </p>
 
 <p align="center">
@@ -40,8 +40,8 @@ Essa aplicação foi desenvolvida durante a 3° edição da **Next Level Week**,
   >  Biblioteca de mapeamento interativo para aplicações baseadas em navegadores, tornando mais fácil a exibição de mapas interativos.
   - `Prisma + PostgreSQL`
   > Prisma é um ORM (Object-Relational Mapping) utilizado para facilitar o acesso e manipulação do banco de dados PostgreSQL.
-  - `Render`
-  > Plataforma de hospedagem para realizar o deploy da aplicação, tornando-a disponível para acesso em ambiente de produção.
+  - `Vercel`
+  > Plataforma de hospedagem voltada para aplicações web modernas e escaláveis.
 
 
 ## :paintbrush: Layout

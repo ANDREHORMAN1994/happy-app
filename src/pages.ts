@@ -4,11 +4,11 @@ import { OrphanageAttrs, OrphanageInfos } from './types';
 
 const prisma = new PrismaClient();
 
-export function Home(_req: Request, res: Response) {
+function Home(_req: Request, res: Response) {
   return res.render('index');
 }
 
-export async function allOrphanages(_req: Request, res: Response) {
+async function allOrphanages(_req: Request, res: Response) {
   try {
     const orphanages: OrphanageAttrs[] = await prisma.orphanage.findMany();
     // return res.status(200).json({ orphanages });
@@ -19,7 +19,7 @@ export async function allOrphanages(_req: Request, res: Response) {
   }
 }
 
-export async function orphanageDetails(req: Request, res: Response) {
+async function orphanageDetails(req: Request, res: Response) {
   const id = req.query.id;
 
   try {
@@ -42,11 +42,11 @@ export async function orphanageDetails(req: Request, res: Response) {
   }
 }
 
-export function createOrphanage(_req: Request, res: Response) {
+function createOrphanage(_req: Request, res: Response) {
   return res.render('create-orphanage');
 }
 
-export async function saveOrphanage(req: Request, res: Response) {
+async function saveOrphanage(req: Request, res: Response) {
   const fields = req.body;
   let images = ['/images/sem-imagem.jpg'];
   let weeks = true;
@@ -91,4 +91,12 @@ export async function saveOrphanage(req: Request, res: Response) {
     console.log(error);
     return res.send('Erro no banco de dados! Erro para salvar um novo orfanato!');
   }
+}
+
+export default {
+  Home,
+  allOrphanages,
+  orphanageDetails,
+  createOrphanage,
+  saveOrphanage,
 }
