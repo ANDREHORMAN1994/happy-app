@@ -1,6 +1,6 @@
 <h1 align="center">
-  <img alt="Happy" src="./.github/logo.svg" height="100px" />
-  <p>JavaScript | HTML | CSS</p>
+  <p><img alt="Happy" src="./.github/logo.svg" height="100px" /></p>
+  <span>JavaScript | HTML | CSS</span>
 </h1>
 
 <p align="center">
